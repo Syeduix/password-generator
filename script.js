@@ -90,9 +90,6 @@ var upperCasedCharacters = [
 
 var finalCharactersPool = [];
 
-// // Function to prompt user for password options
-// function getPasswordOptions() {}
-
 // Function for getting a random element from an array
 function getRandom(arr, length) {
   let password = "";
@@ -171,8 +168,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// new code
-
-// Call the function to get the user's password options
-// getPasswordOptions();
