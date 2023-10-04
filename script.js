@@ -94,7 +94,15 @@ var finalCharactersPool = [];
 // function getPasswordOptions() {}
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+function getRandom(arr, length) {
+  let password = "";
+
+  for (let i = 0; i < length; i++) {
+    password += arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  return password;
+}
 
 // Function to generate password with user input
 function generatePassword() {
@@ -131,6 +139,23 @@ function generatePassword() {
   var includeSpecialCharacters = confirm(
     "Include special characters? Click OK for yes, Cancel for no."
   );
+
+  if (includeLowercase) {
+    finalCharactersPool.push(...lowerCasedCharacters);
+  }
+  if (includeUppercase) {
+    finalCharactersPool.push(...upperCasedCharacters);
+  }
+  if (includeNumbers) {
+    finalCharactersPool.push(...numericCharacters);
+  }
+  if (includeSpecialCharacters) {
+    finalCharactersPool.push(...specialCharacters);
+  }
+
+  var finalPassword = getRandom(finalCharactersPool, length);
+
+  return finalPassword;
 }
 
 // Get references to the #generate element
